@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        border-collapse: collapse;
+    }
+    th{
+        background-color: gray;
+        color:white;
+    }
+
+    tr:nth-child(even) td{
+        background-color: yellow;
+    }
+    div.fixed{
+        position: fixed;
+        top: 0;
+        right:0;
+        border: 3px solid #73AD21;
+    }
+</style>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+    
+    </table>
+    <div class="fixed">
+        This div<br>element has <br>position: fixed.
+    </div>
+</body>
+</html>
