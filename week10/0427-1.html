@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>圖片上傳介面</title>
+
+<style>
+/* =========================
+   全域設定
+========================= */
+*{
+  box-sizing:border-box;
+  font-family:Roboto, Arial, sans-serif;
+}
+
+body{
+  margin:0;
+  padding:20px;
+  background:#f5f5f5;
+}
+
+/* 主容器 */
+.wrapper{
+  display:flex;
+  gap:20px;
+  width:760px;
+  margin:auto;
+}
+
+/* =========================
+   中間預覽區
+========================= */
+.preview-panel{
+  width:496px;
+  background:#fff;
+  border:1px solid #ddd;
+}
+
+
+#showInfo {
+  display: none;
+}
+
+.preview-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-left:15px;
+  height: 35px; /* 補上預覽列高度 */
+  font-size: 13px;
+  color:#707070
+}
+
+.btn-view{
+  height:22px;
+  line-height:20px;
+  cursor:pointer;
+  border-radius: 8px;
+  padding:0px 10px;
+  border:1px solid #2f2f2f;
+  margin: 0 22px 0 0;
+  color: #2f2f2f;
+  font-size: 13px;
+}
+
+
+.hide-text {
+  display: none;
+}
+
+.preview-box{
+  width: 450px;
+  height:240px;
+  border:1px solid #ddd;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  overflow:hidden;
+  background-image:url('https://picsum.photos/id/1015/450/240');
+  background-size: cover; /* 讓背景圖適應框 */
+}
+
+.preview-box img{
+  max-width:100%;
+  max-height:100%;
+}
+
+/* =========================
+   詳細資訊（在圖片下方）
+========================= */
+.info-box{
+  margin:10px 22px;
+  display:none; /* 預設隱藏 */
+  font-size:13px;
+  line-height:1.8;
+  background:#ffffff;
+  color:#707070;
+  max-height: 120px; 
+  overflow-y: auto; 
+}
+
+
+
+
+#showInfo:checked ~ .info-box {
+  display: block;
+}
+
+#showInfo:checked ~ .preview-top .show-text {
+  display: none;
+}
+#showInfo:checked ~ .preview-top .hide-text {
+  display: inline;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="preview-panel">
+    
+    <input type="checkbox" id="showInfo">
+
+    <div class="preview-top">
+      <div class="preview-title">預覽</div>
+      <label for="showInfo" class="btn-view">
+        <span class="show-text">查看資訊</span>
+        <span class="hide-text">收起資訊</span>
+      </label>
+    </div>
+
+    <div class="preview-box"></div>
+
+    <div class="info-box" style="padding:6px">
+      <div>檔案名稱：1015-450x240.jpg</div>
+      <div>修改日期：2023-04-27</div>
+      <div>類型：JPG</div>
+      <div>大小：23.2KB</div>
+      <div>路徑：https://fastly.picsum.photos/id/1015/450/240.jpg?hmac=LAt90RhyhiJvh9etZUf19FXCnWZoQbvcUnEG597-Q-Q</div>
+    </div>
+    
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>檔案管理器預覽</title>
+    <style>
+        /* 字體設定 */
+        body {
+            font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+            font-size: 13px;
+            color: #2f2f2f;
+            margin: 20px;
+            background-color: #ffffff;
+        }
+
+        /* 外層容器 */
+        .file-manager {
+            width: 800px;
+            border: 1px solid #eaeaea;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 上方標題列 */
+        .header {
+            height: 35px;
+            background-color: #f6f6f6;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .header-label {
+            color: #4CAF50; /* 模擬圖中的綠色標籤 */
+            font-weight: bold;
+        }
+
+        /* 主要內容區 */
+        .main-content {
+            display: flex;
+            height: 300px;
+        }
+
+        /* 左側檔案清單 */
+        .file-list {
+            flex: 1;
+            border-right: 1px solid #eaeaea;
+            overflow-y: auto;
+        }
+
+        .file-item {
+            height: 28px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            border-bottom: 1px solid #eaeaea;
+            background-color: #ffffff;
+        }
+
+        /* 選取狀態 (圖中綠色背景部分) */
+        .file-item.selected {
+            background-color: #e8f3ff;
+            border-bottom: 1px solid #cfddff;
+            border-top: 1px solid #cfddff;
+            margin-top: -1px; /* 修正邊框重疊 */
+        }
+
+        /* 模擬核取方塊 */
+        .checkbox {
+            width: 12px;
+            height: 12px;
+            border: 1px solid #2f2f2f;
+            margin-right: 12px;
+            background-color: #fff;
+        }
+        .selected .checkbox {
+            background-color: #bd66ff; /* 模擬圖中的紫色勾選顏色 */
+        }
+
+        .file-name {
+            color: #2f2f2f;
+        }
+        .selected .file-name {
+            color: #4CAF50; /* 選取時的文字顏色 */
+        }
+
+        /* 右側預覽區 */
+        .preview-area {
+            width: 496px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 預覽區上方按鈕列 */
+        .preview-controls {
+            height: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-info {
+            height: 22px;
+            padding: 0 10px;
+            border: 1px solid #2f2f2f;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #2f2f2f;
+            font-size: 13px;
+            cursor: pointer;
+            line-height: 20px;
+        }
+
+        /* 圖片容器 */
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .preview-img {
+            max-width: 450px;
+            max-height: 240px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 下方狀態列 */
+        .footer {
+            height: 30px;
+            background-color: #f3f3f3;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .count-label {
+            color: #2f2f2f;
+        }
+        .count-number {
+            color: #0084ff;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="file-manager">
+        <div class="header">
+            <span class="header-label">名稱</span>
+        </div>
+
+        <div class="main-content">
+            <div class="file-list">
+                <div class="file-item selected">
+                    <div class="checkbox"></div>
+                    <span class="file-name">20171012_1.jpg</span>
+                </div>
+                <div class="file-item selected">
+                    <div class="checkbox"></div>
+                    <span class="file-name">20171012_2.jpg</span>
+                </div>
+                <div class="file-item selected">
+                    <div class="checkbox"></div>
+                    <span class="file-name">20171012_3.png</span>
+                </div>
+                <div class="file-item selected">
+                    <div class="checkbox"></div>
+                    <span class="file-name">20171012_4.jpg</span>
+                </div>
+                <div class="file-item">
+                    <div class="checkbox"></div>
+                    <span class="file-name">20171012_5.jpg</span>
+                </div>
+                <div class="file-item">
+                    <div class="checkbox"></div>
+                    <span class="file-name">20171012_6.png</span>
+                </div>
+                <div class="file-item">
+                    <div class="checkbox"></div>
+                    <span class="file-name">20171012_7.png</span>
+                </div>
+            </div>
+
+            <div class="preview-area">
+                <div class="preview-controls">
+                    <span style="color: #707070;">預覽</span>
+                    <button class="btn-info">查看資訊</button>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=450&h=240&fit=crop" alt="Default 450x240" class="preview-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span class="count-label">數量 :</span>
+            <span class="count-number">64</span>
+            <span class="count-label"> / 100</span>
+        </div>
+    </div>
+
+</body>
+</html>
