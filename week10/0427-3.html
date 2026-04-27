@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        
+        .block-top {
+            width: 100%;
+            background: #8ecae6;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+       
+        .block-middle {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .block-middle-item {
+            width: 100%;
+            background: #bde0fe;
+            padding: 20px;
+        }
+
+       
+        .block-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+        .block-bottom-item {
+            width: 50%;
+            background: #ffc8dd;
+            padding: 20px;
+            border: 1px solid #fff;
+        }
+
+        @media (max-width: 480px) {
+            
+            .block-middle {
+                flex-direction: row;
+            }
+            .block-middle-item {
+                width: 33.33%;
+            }
+            
+            .block-bottom-item {
+                width: 25%;
+            }
+        }
+        </style>
+</head>
+<body>
+        
+        <div class="block-top">
+            <h2>上方塊</h2>
+            <p>這是第一種，永遠寬度100%</p>
+        </div>
+
+        
+        <div class="block-middle">
+            <div class="block-middle-item">中方塊 1</div>
+            <div class="block-middle-item">中方塊 2</div>
+            <div class="block-middle-item">中方塊 3</div>
+        </div>
+
+        
+        <div class="block-bottom">
+            <div class="block-bottom-item">下方塊 1</div>
+            <div class="block-bottom-item">下方塊 2</div>
+            <div class="block-bottom-item">下方塊 3</div>
+            <div class="block-bottom-item">下方塊 4</div>
+        </div>
+</body>
+</html>
