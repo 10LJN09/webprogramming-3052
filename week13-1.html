@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Properties Demo</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            margin: 30px;
+            line-height: 1.8;
+        }
+
+        h2{
+            color: rgb(0,0,0);
+        }
+
+        .box{
+            background-color: #f4f4f4;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Object Practice</h1>
+
+    <div class="box">
+        <h2>Original Object Properties</h2>
+        <div id="beforeDelete"></div>
+    </div>
+
+    <div class="box">
+        <h2>Object After Deleting Age Property</h2>
+        <div id="afterDelete"></div>
+    </div>
+
+    <script>
+
+        // Create object
+        var Person = {
+            firstName : "Tony",
+            lastName : "Lee",
+            age : 50,
+            eyeColor : "Blue"
+        };
+
+        // Show all properties before deleting
+        let beforeText = "";
+
+        for(let key in Person){
+            beforeText += key + " : " + Person[key] + "<br>";
+        }
+
+        document.getElementById("beforeDelete").innerHTML = beforeText;
+
+        // Delete age property
+        delete Person.age;
+
+        // Show object after deleting
+        let afterText = "";
+
+        for(let key in Person){
+            afterText += key + " : " + Person[key] + "<br>";
+        }
+
+        document.getElementById("afterDelete").innerHTML = afterText;
+
+        // Also print in console
+        console.log(Person);
+
+    </script>
+
+</body>
+</html>
